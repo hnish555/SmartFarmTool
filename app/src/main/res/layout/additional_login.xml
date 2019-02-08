@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/addlll1"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:text="@string/orloginwith"
+            android:gravity="center"
+            android:textColor="@color/colorPrimary" />
+
+        <View
+            android:layout_width="45dp"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimary"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/addlll2"
+        android:layout_below="@+id/addlll1"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/addlfacebook"
+            android:background="@drawable/fb_login"
+            android:layout_width="wrap_content"
+            android:text="@string/facebook"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:layout_marginBottom="15dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/addlgoogle"
+            android:background="@drawable/ggl_login"
+            android:text="@string/google"
+            android:textColor="@android:color/white"
+            android:textAllCaps="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>
