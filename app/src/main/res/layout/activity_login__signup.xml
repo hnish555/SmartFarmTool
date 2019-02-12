@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +9,7 @@
     android:background="@color/white"
     >
 
-    <TextView android:id="@+id/alstv1"
+    <TextView android:id="@+id/home_title_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -21,8 +22,8 @@
         android:text="@string/app_name1"/>
 
     <LinearLayout
-        android:id="@+id/alsll1"
-        app:layout_constraintTop_toBottomOf="@id/alstv1"
+        android:id="@+id/home_layout_id"
+        app:layout_constraintTop_toBottomOf="@id/home_title_id"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="60dp"
@@ -33,7 +34,7 @@
 
         <Button
             style="?android:attr/buttonBarButtonStyle"
-            android:id="@+id/alsb1"
+            android:id="@+id/home_login_id"
 
             android:text="@string/login"
             android:background="@drawable/buttoncolor1"
@@ -47,7 +48,7 @@
             />
 
         <Button
-            android:id="@+id/alsb2"
+            android:id="@+id/home_sign_up_id"
             android:background="@drawable/buttoncolor1"
             android:textColor="@drawable/textcolor1"
             android:text="@string/signup"
@@ -67,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        app:layout_constraintTop_toBottomOf="@id/alsll1"
+        app:layout_constraintTop_toBottomOf="@id/home_layout_id"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         />

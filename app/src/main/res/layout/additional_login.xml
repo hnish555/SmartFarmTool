@@ -45,7 +45,7 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/addlfacebook"
+            android:id="@+id/facebook_login_id"
             android:background="@drawable/fb_login"
             android:layout_width="wrap_content"
             android:text="@string/facebook"
@@ -55,7 +55,7 @@
             android:layout_height="wrap_content" />
 
         <Button
-            android:id="@+id/addlgoogle"
+            android:id="@+id/google_login_id"
             android:background="@drawable/ggl_login"
             android:text="@string/google"
             android:textColor="@android:color/white"

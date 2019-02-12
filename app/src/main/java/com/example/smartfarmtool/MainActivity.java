@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.firebase.FirebaseApp;
+
 import javax.xml.transform.Source;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        FirebaseApp.initializeApp(this);
         farmersection = (Button) findViewById(R.id.farmer_section);
         farmersection.setOnClickListener(new View.OnClickListener() {
             @Override

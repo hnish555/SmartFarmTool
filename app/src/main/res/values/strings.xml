@@ -18,4 +18,5 @@
     <string name="village">Village</string>
     <string name="Dist">District</string>
     <string name="state">State</string>
+    <string name="registration">Registration</string>
 </resources>

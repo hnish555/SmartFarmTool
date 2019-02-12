@@ -30,6 +30,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="10dp"
             android:layout_weight="45"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
 
 
@@ -37,7 +38,7 @@
 
             <EditText
 
-                android:id="@+id/alet1"
+                android:id="@+id/username_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
@@ -58,11 +59,12 @@
             android:layout_height="0dp"
             android:layout_marginTop="15dp"
             android:layout_weight="45"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
             >
 
             <EditText
-                android:id="@+id/alet2"
+                android:id="@+id/password_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/colorPrimary"
@@ -77,7 +79,7 @@
 
 
         <Button
-            android:id="@+id/alb1"
+            android:id="@+id/login_id"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="40"
