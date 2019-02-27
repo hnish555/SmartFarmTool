@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class Login_Signup extends AppCompatActivity {
 
@@ -15,25 +16,22 @@ public class Login_Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__signup);
-
-        login = (Button) findViewById(R.id.home_login_id);
-        signup = (Button) findViewById(R.id.home_sign_up_id);
-        login.setOnClickListener(new View.OnClickListener() {
+        TextView skip=findViewById(R.id.skip_id);
+        skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(Login_Signup.this,loginactivity.class);
-                startActivity(intent);
-
+                startActivity(new Intent(Login_Signup.this,HomeActivity.class));
             }
         });
 
-        signup.setOnClickListener(new View.OnClickListener() {
+        TextView txt=findViewById(R.id.login_signup_button_id);
+        txt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login_Signup.this,signupactivity.class);
+                Intent intent=new Intent(Login_Signup.this,PhoneActivity.class);
                 startActivity(intent);
             }
         });
+
     }
 }

@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "194797795607",
-    "firebase_url": "https://smartfarm-de661.firebaseio.com",
-    "project_id": "smartfarm-de661",
-    "storage_bucket": "smartfarm-de661.appspot.com"
+    "project_number": "496551768317",
+    "firebase_url": "https://smartfarmtool-8380.firebaseio.com",
+    "project_id": "smartfarmtool-8380",
+    "storage_bucket": "smartfarmtool-8380.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:194797795607:android:abc82e628157855a",
+        "mobilesdk_app_id": "1:496551768317:android:4d973ce8611ae520",
         "android_client_info": {
-          "package_name": "com.example.smartfarmtool"
+          "package_name": "com.android.application"
         }
       },
       "oauth_client": [
         {
-          "client_id": "194797795607-l5injh9m53nthjavua042ee42p8gku01.apps.googleusercontent.com",
+          "client_id": "496551768317-omsetcvvsh6ld8vehn9tvgpp93bs4s5e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.smartfarmtool",
+            "package_name": "com.android.application",
             "certificate_hash": "b3ef53ebdb164392c63487f93421ce74f61fe248"
           }
         },
         {
-          "client_id": "194797795607-8nnolna73163u9m1n66qd0kebi0d3f1s.apps.googleusercontent.com",
+          "client_id": "496551768317-kcks8eo3f1dhds9oj09krf55o0e375o1.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBL_4KuiAJXtDnf3GiYZQpdbGtcXys8Vrw"
+          "current_key": "AIzaSyD8ppfbUvB9EXaev2rCFsYMhBz1A_CLNuU"
         }
       ],
       "services": {
@@ -40,7 +40,51 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "194797795607-8nnolna73163u9m1n66qd0kebi0d3f1s.apps.googleusercontent.com",
+              "client_id": "496551768317-kcks8eo3f1dhds9oj09krf55o0e375o1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:496551768317:android:abc82e628157855a",
+        "android_client_info": {
+          "package_name": "com.example.smartfarmtool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "496551768317-6990lb14s7ro1h08qsnjlkv78higrjfp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.smartfarmtool",
+            "certificate_hash": "b3ef53ebdb164392c63487f93421ce74f61fe248"
+          }
+        },
+        {
+          "client_id": "496551768317-kcks8eo3f1dhds9oj09krf55o0e375o1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8ppfbUvB9EXaev2rCFsYMhBz1A_CLNuU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "496551768317-kcks8eo3f1dhds9oj09krf55o0e375o1.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
