@@ -6,9 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.smartfarmtool.Login.Login_Signup;
 import com.google.firebase.FirebaseApp;
-
-import javax.xml.transform.Source;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
         farmersection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this,Login_Signup.class);
+                Intent intent = new Intent(MainActivity.this, Login_Signup.class);
                 startActivity(intent);
             }
         });
