@@ -126,7 +126,7 @@
                 android:id="@+id/otp_id"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="@string/hintmobno"
+                android:hint="@string/enter_the_otp"
                 android:backgroundTint="@color/colorPrimary"
                 android:inputType="phone"
                 android:maxLength="10"
