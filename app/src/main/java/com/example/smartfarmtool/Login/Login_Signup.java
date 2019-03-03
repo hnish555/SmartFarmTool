@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.smartfarmtool.HomeActivity;
+import com.example.smartfarmtool.NavigationDMenu;
 import com.example.smartfarmtool.R;
 
 public class Login_Signup extends AppCompatActivity {
@@ -23,7 +24,7 @@ public class Login_Signup extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Login_Signup.this, HomeActivity.class));
+                startActivity(new Intent(Login_Signup.this, NavigationDMenu.class));
             }
         });
 

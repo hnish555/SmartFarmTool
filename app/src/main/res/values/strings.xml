@@ -21,8 +21,17 @@
     <string name="registration">Complete Registration</string>
     <string name="smart_farm_tool">Smart Farm Tool</string>
     <string name="skip">Skip</string>
-    <string name="login_or_ragister">Login or Ragister</string>
+    <string name="login_or_register">Login or Register</string>
     <string name="phone_number">PHONE NUMBER</string>
     <string name="enter_your_mobile_number">Enter your mobile number</string>
     <string name="continue_btn">Continue</string>
+    <string name="enter_the_otp">Enter OTP</string>
+    <string name="title_activity_navigation_dmenu">NavigationDMenu</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Smart Farm Tool</string>
+    <string name="nav_header_subtitle">smartfarmtool@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_selling">SellingActivity</string>
 </resources>

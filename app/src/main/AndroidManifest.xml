@@ -9,17 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".BuyActivity.ProductBuy"></activity>
+        <activity
+            android:name=".SellingActivity"
+            android:label="@string/title_activity_selling"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".NavigationDMenu"
+            android:label="@string/title_activity_navigation_dmenu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BuyActivity.ProductBuy" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".Login.PhoneActivity" />
         <activity android:name=".Login.Login_Signup" />
+
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddProduct"/>
 
         <meta-data
             android:name="preloaded_fonts"
