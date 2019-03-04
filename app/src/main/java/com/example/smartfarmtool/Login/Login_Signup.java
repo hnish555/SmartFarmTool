@@ -19,13 +19,7 @@ public class Login_Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login__signup);
-        TextView skip=findViewById(R.id.skip_id);
-        skip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Login_Signup.this, HomeActivity.class));
-            }
-        });
+      
 
         TextView txt=findViewById(R.id.login_signup_button_id);
         txt.setOnClickListener(new View.OnClickListener() {

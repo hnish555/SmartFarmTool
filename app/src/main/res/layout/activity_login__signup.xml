@@ -14,23 +14,11 @@
         android:layout_weight="0.5"
         >
 
-        <TextView
-            android:id="@+id/skip_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/skip"
-            android:layout_alignParentRight="true"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            android:layout_margin="10dp"
-            />
 
         <TextView
             android:id="@+id/login_signup_title_id"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/skip_id"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="30dp"
