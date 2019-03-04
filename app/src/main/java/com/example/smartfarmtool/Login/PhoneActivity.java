@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,21 +31,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.concurrent.TimeUnit;
 
 import static com.example.smartfarmtool.R.id.phone_next_btn_id;
-
 public class PhoneActivity extends AppCompatActivity {
 
     private static final String TAG = "PhoneLogin";
-    private boolean mVerificationInProgress = false;
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthlistner;
-
     FirebaseDatabase database;
     DatabaseReference databaseReference;
-    TextView phn,otp,name;
-    Button phn_btn,otp_btn;
+    TextView phn, otp, name;
+    Button phn_btn, otp_btn;
+    ProgressBar progressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,24 +53,33 @@ public class PhoneActivity extends AppCompatActivity {
         final RelativeLayout phn_lyt;
         final LinearLayout otp_lyt;
 
-        phn_lyt=findViewById(R.id.phone_layout);
-        otp_lyt=findViewById(R.id.otp_layout);
-
-        phn=findViewById(R.id.enter_phone_id);
-        phn_btn=findViewById(phone_next_btn_id);
-
-        otp=findViewById(R.id.otp_id);
-        name=findViewById(R.id.otp_name_id);
-        otp_btn=findViewById(R.id.otp_continue);
-        database=FirebaseDatabase.getInstance();
-        databaseReference=database.getReference("User:");
+        phn_lyt = findViewById(R.id.phone_layout);
+        otp_lyt = findViewById(R.id.otp_layout);
 
 
+        phn = findViewById(R.id.enter_phone_id);
+        phn_btn = findViewById(phone_next_btn_id);
+        progressBar = findViewById(R.id.progress_id);
+        otp = findViewById(R.id.otp_id);
+        name = findViewById(R.id.otp_name_id);
+        otp_btn = findViewById(R.id.otp_continue);
 
+        database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference();
         phn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String code = "+91";
+                String number = phn.getText().toString();
+                String phoneNumber = code + number;
+                if (phn.getText().toString().isEmpty()) {
+                    phn.setError("Phone numbe required :");
+                    phn.requestFocus();
+                    return;
+                }
+
                 getOtp(phn.getText().toString());
+
 
             }
         });
@@ -92,8 +101,13 @@ public class PhoneActivity extends AppCompatActivity {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential credential) {
                 Log.d("", "onVerificationCompleted:" + credential);
+                String code = credential.getSmsCode();
+                if (code != null) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    otp.setText(code);
+                    signInWithPhoneAuthCredential(credential);
 
-                signInWithPhoneAuthCredential(credential);
+                }
             }
 
             @Override
@@ -127,9 +141,11 @@ public class PhoneActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = task.getResult().getUser();
-                            String nam=name.getText().toString();
+                            String nam = name.getText().toString();
                             databaseReference.setValue(nam);
-                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class).putExtra("phone", user.getPhoneNumber()));
+                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+
                             finish();
                         } else {
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
@@ -142,15 +158,17 @@ public class PhoneActivity extends AppCompatActivity {
     }
 
     private void getOtp(String phoneNumber) {
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks);        // OnVerificationStateChangedCallbacks
+                "+91" + phoneNumber,
+                60,
+                TimeUnit.SECONDS,
+                this,
+                mCallbacks);
     }
 
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
+
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
         signInWithPhoneAuthCredential(credential);
     }
@@ -158,7 +176,7 @@ public class PhoneActivity extends AppCompatActivity {
     private void resendVerificationCode(String phoneNumber,
                                         PhoneAuthProvider.ForceResendingToken token) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
+                "+91" + phoneNumber,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)
@@ -166,10 +184,13 @@ public class PhoneActivity extends AppCompatActivity {
                 token);             // ForceResendingToken from callbacks
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+        }
 
-
-
-
-
-
+    }
 }
