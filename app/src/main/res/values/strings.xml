@@ -2,7 +2,7 @@
     <string name="app_name">SmartFarmTool</string>
     <string name="string1">Where would you like to go?</string>
     <string name="farmersection">Farmer Section</string>
-    <string name="sell_buy">Selling/Buying</string>
+    <string name="sell_buy">Buy Section</string>
     <string name="app_name1">Smart Farm Tool</string>
     <string name="login">Log In</string>
     <string name="signup">Next</string>
@@ -14,11 +14,11 @@
     <string name="hintpass">Password</string>
     <string name="forgotpass">Forgot Password / Login with OTP</string>
     <string name="newhere">If you are new,please</string>
-    <string name="name">Name</string>
+    <string name="name">Enter name</string>
     <string name="village">Village</string>
     <string name="Dist">District</string>
     <string name="state">State</string>
-    <string name="registration">Wait for the code I send you...</string>
+    <string name="registration">Otp varification...</string>
     <string name="smart_farm_tool">Smart Farm Tool</string>
     <string name="skip">Skip</string>
     <string name="login_or_ragister">Login or Register</string>
@@ -26,4 +26,11 @@
     <string name="enter_your_mobile_number">May I ask you phone number ?</string>
     <string name="continue_btn">Continue</string>
     <string name="enter_the_otp">Enter the otp</string>
+    <string name="navigation_drawer_open" />
+    <string name="navigation_drawer_close" />
+    <string name="enter">Enter</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="_5_days_weather_forcast">5 DAYS WEATHER FORCAST</string>
+    <string name="todayweatherfragment">TodayWeatherFragment</string>
 </resources>

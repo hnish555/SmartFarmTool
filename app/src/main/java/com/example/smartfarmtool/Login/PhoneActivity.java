@@ -13,7 +13,6 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.smartfarmtool.HomeActivity;
 import com.example.smartfarmtool.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,11 +21,13 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
@@ -41,9 +42,11 @@ public class PhoneActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthlistner;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
-    TextView phn, otp, name;
+    TextView phn, otp ;
     Button phn_btn, otp_btn;
     ProgressBar progressBar;
+    String phoneNumber;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,17 +64,17 @@ public class PhoneActivity extends AppCompatActivity {
         phn_btn = findViewById(phone_next_btn_id);
         progressBar = findViewById(R.id.progress_id);
         otp = findViewById(R.id.otp_id);
-        name = findViewById(R.id.otp_name_id);
         otp_btn = findViewById(R.id.otp_continue);
 
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference();
+        databaseReference = database.getReference().child("Farmer :");
+
         phn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String code = "+91";
                 String number = phn.getText().toString();
-                String phoneNumber = code + number;
+                phoneNumber = code + number;
                 if (phn.getText().toString().isEmpty()) {
                     phn.setError("Phone numbe required :");
                     phn.requestFocus();
@@ -95,6 +98,8 @@ public class PhoneActivity extends AppCompatActivity {
                 verifyPhoneNumberWithCode(mVerificationId, code);
             }
         });
+
+
 
         mAuth = FirebaseAuth.getInstance();
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
@@ -138,21 +143,38 @@ public class PhoneActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
                             Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = task.getResult().getUser();
-                            String nam = name.getText().toString();
-                            databaseReference.setValue(nam);
-                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
-                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                            if (task.isSuccessful()) {
+                                DatabaseReference UserDb = FirebaseDatabase.getInstance().getReference().child("Farmer :");
+                                UserDb.orderByChild("fphone").equalTo(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.getValue() != null) {
+                                            //user  already  log in
+                                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+                                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                            finish();
+                                        } else if (dataSnapshot.getValue()==null){
+                                            //new  user
+                                            startActivity(new Intent(PhoneActivity.this, RegisterAcitivity.class)
+                                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                                    .putExtra("phoneNumber", phoneNumber));
+                                            finish();
+                                        }
+                                    }
 
-                            finish();
-                        } else {
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                otp.setError("Invalid code.");
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
-                        }
+                            else {
+
+
+                            }
+
+
                     }
                 });
     }

@@ -1,95 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login.PhoneActivity">
+    tools:context=".Login.PhoneActivity"
+    android:background="#323232">
 
-<RelativeLayout
-    android:id="@+id/phone_layout"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-
-    >
-    <TextView
-        android:id="@+id/phone_title_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/enter_your_mobile_number"
-        android:textSize="20dp"
-        android:textColor="@color/colorAccent"
-        android:textStyle="bold"
+    <de.hdodenhof.circleimageview.CircleImageView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/profile_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:src="@drawable/farmtool"
+        app:civ_border_width="2dp"
+        app:civ_border_color="#FF000000"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        />
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/astil1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_below="@+id/phone_title_id"
-        >
-
-        <EditText
-            android:id="@+id/otp_name_id"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/name"
-            android:inputType="textCapWords"
-
-            />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/inputLayout"
-        android:layout_below="@+id/astil1"
+        />
+    <RelativeLayout
+        android:id="@+id/phone_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_margin="20dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
+        android:layout_below="@id/profile_image"
+        android:layout_margin="12dp"
         >
 
-        <EditText
-            android:id="@+id/enter_phone_id"
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/inputLayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="@string/hintmobno"
-            android:backgroundTint="@color/colorPrimary"
-            android:inputType="phone"
-            android:maxLength="15"
-            android:maxLines="1"
-            android:textColorHighlight="@color/colorPrimaryDark"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            >
 
-            />
+            <EditText
+                android:id="@+id/enter_phone_id"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/hintmobno"
+                android:backgroundTint="@color/colorPrimary"
+                android:inputType="phone"
+                android:maxLength="15"
+                android:maxLines="1"
+                android:textSize="20dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColorHighlight="@color/colorPrimaryDark"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorPrimaryDark"
+                android:textAlignment="center"
+                />
 
 
-    </android.support.design.widget.TextInputLayout>
-    <Button
-        android:id="@+id/phone_next_btn_id"
-        android:layout_below="@id/inputLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/buttoncolor1"
-        android:text="@string/signup"
-        android:textAllCaps="false"
-        android:textColor="@drawable/textcolor1" />
+        </android.support.design.widget.TextInputLayout>
+        <Button
+            android:id="@+id/phone_next_btn_id"
+            android:layout_below="@id/inputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/button_new"
+            android:text="@string/signup"
+            android:alpha="0.7"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent" />
 
-</RelativeLayout>
+    </RelativeLayout>
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/profile_image"
+        android:layout_margin="12dp"
 
         >
         <ProgressBar
@@ -111,17 +99,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
-                android:background="@color/colorPrimaryDark">
+                >
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/registration"
                     android:gravity="center_horizontal|bottom"
-                    android:textColor="@color/white"
+                    android:textColor="@color/colorPrimary"
                     android:textStyle="bold"
                     android:fontFamily="monospace"
                     android:layout_marginBottom="10dp"
                     android:textSize="20dp"
+                    android:alpha="0.7"
+
                     />
             </LinearLayout>
 
@@ -149,6 +139,9 @@
                     android:inputType="phone"
                     android:maxLength="10"
                     android:maxLines="1"
+                    android:textAlignment="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/colorAccent"
                     android:textColorHighlight="@color/colorPrimaryDark"
                     />
 
@@ -164,14 +157,17 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/buttoncolor1"
+                android:background="@drawable/button_new"
                 android:text="@string/continue_btn"
                 android:textAllCaps="false"
-                android:textColor="@drawable/textcolor1" />
+                android:fontFamily="serif-monospace"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:alpha="0.6"
+                android:textColor="@color/colorAccent" />
 
         </LinearLayout>
 
 
     </FrameLayout>
-
 </RelativeLayout>

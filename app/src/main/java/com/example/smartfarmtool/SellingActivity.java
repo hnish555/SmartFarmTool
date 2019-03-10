@@ -18,7 +18,7 @@ import java.util.List;
 
 public class SellingActivity extends AppCompatActivity {
 
-    private static final String TAG ="SellingActivity";
+    public static final String TAG ="SellingActivity";
 
     RecyclerView recyclerView;
     RecyclerView.Adapter adapter;

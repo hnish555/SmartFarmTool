@@ -4,8 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.smartfarmtool.BuyActivity.ProductBuy;
-import com.example.smartfarmtool.Login.Login_Signup;
+
+import com.example.smartfarmtool.Login.PhoneActivity;
 import com.google.firebase.FirebaseApp;
 
 
@@ -24,14 +24,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(MainActivity.this, ProductBuy.class));
+                startActivity(new Intent(MainActivity.this, NavigationDMenu.class));
             }
         });
 
         farmersection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Login_Signup.class);
+                Intent intent = new Intent(MainActivity.this, PhoneActivity.class);
                 startActivity(intent);
             }
         });
