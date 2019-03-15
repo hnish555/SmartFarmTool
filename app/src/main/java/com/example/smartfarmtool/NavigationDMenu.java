@@ -76,6 +76,7 @@ public class NavigationDMenu extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
+            startActivity(new Intent(NavigationDMenu.this,CropListingActivity.class));
         } else if (id == R.id.nav_myaccount) {
 
         } else if (id == R.id.nav_selling) {

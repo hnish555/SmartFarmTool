@@ -66,10 +66,7 @@ public class PhoneActivity extends AppCompatActivity {
         otp = findViewById(R.id.otp_id);
         otp_btn = findViewById(R.id.otp_continue);
 
-        database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference().child("Farmer :");
-
-        phn_btn.setOnClickListener(new View.OnClickListener() {
+         phn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String code = "+91";
@@ -143,10 +140,10 @@ public class PhoneActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                            Log.d(TAG, "signInWithCredential:success");
+                        Log.d(TAG, "signInWithCredential:success");
                             if (task.isSuccessful()) {
                                 DatabaseReference UserDb = FirebaseDatabase.getInstance().getReference().child("Farmer :");
-                                UserDb.orderByChild("fphone").equalTo(phoneNumber).addListenerForSingleValueEvent(new ValueEventListener() {
+                                UserDb.orderByChild("fphone").addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.getValue() != null) {

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.smartfarmtool.Main.NewsMainActivity;
 import com.example.smartfarmtool.MainActivity;
 import com.example.smartfarmtool.R;
 import com.google.firebase.auth.FirebaseAuth;
@@ -29,7 +30,15 @@ public class HomeActivity extends AppCompatActivity {
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
             }
         });
-
+        Button news=findViewById(R.id.newsButton);
+        news.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(HomeActivity.this, NewsMainActivity.class)
+                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            }
+        });
 
     }
 

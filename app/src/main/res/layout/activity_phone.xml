@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Login.PhoneActivity"
-    android:background="#323232">
+   >
 
     <de.hdodenhof.circleimageview.CircleImageView
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -41,7 +41,9 @@
                 android:hint="@string/hintmobno"
                 android:backgroundTint="@color/colorPrimary"
                 android:inputType="phone"
-                android:maxLength="15"
+                android:maxLength="10"
+                android:letterSpacing="0.40"
+                android:textStyle="bold|italic"
                 android:maxLines="1"
                 android:textSize="20dp"
                 android:focusable="true"
@@ -100,17 +102,18 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 >
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/registration"
-                    android:gravity="center_horizontal|bottom"
-                    android:textColor="@color/colorPrimary"
-                    android:textStyle="bold"
-                    android:fontFamily="monospace"
                     android:layout_marginBottom="10dp"
-                    android:textSize="20dp"
                     android:alpha="0.7"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center_horizontal|bottom"
+                    android:text="@string/registration"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
 
                     />
             </LinearLayout>
@@ -139,6 +142,8 @@
                     android:inputType="phone"
                     android:maxLength="10"
                     android:maxLines="1"
+                    android:letterSpacing="1"
+                    android:textStyle="bold|italic"
                     android:textAlignment="center"
                     android:textSize="20dp"
                     android:textColor="@color/colorAccent"
