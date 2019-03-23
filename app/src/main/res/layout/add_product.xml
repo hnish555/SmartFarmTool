@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="25dp"
-    android:layout_margin="30dp"
+
+
+
 
     >
 
     <TextView
-        android:id="@+id/textView_ap"
+        android:id="@+id/textView_ap1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Your Product"
@@ -20,32 +21,73 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:textColor="@color/black"
+        android:layout_marginTop="20dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+
+        />
+
+    <TextView
+        android:id="@+id/textView_ap2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select Crop"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintTop_toBottomOf="@id/textView_ap1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+
+
+        />
+
+    <Spinner
+
+        android:id="@+id/cropname"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_ap2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/textView_ap3"
+
+
+        />
+
+    <TextView
+        android:id="@+id/textView_ap3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Quantity in Quintal"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintTop_toBottomOf="@id/cropname"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
 
 
         />
 
     <android.support.design.widget.TextInputLayout
+        android:id="@+id/til2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-
-        >
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/crop_name"
-            android:hint="Crop Name"
-
-            />
-
-
-    </android.support.design.widget.TextInputLayout>
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintTop_toBottomOf="@id/textView_ap3"
+        app:layout_constraintLeft_toLeftOf="parent"
 
         >
         <android.support.design.widget.TextInputEditText
@@ -54,15 +96,41 @@
             android:id="@+id/quantity"
             android:hint="Quantity in Quintal"
             android:maxLength="10"
+            android:maxLines="1"
+            android:inputType="number"
 
             />
 
 
     </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
+
+    <TextView
+        android:id="@+id/textView_ap4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:text="Enter Rate/Quintal"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:fontFamily="@font/adamina"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til2"
+
+        android:textColor="@color/black"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+
+
+
+        />
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/til3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_ap4"
 
         >
         <android.support.design.widget.TextInputEditText
@@ -71,23 +139,37 @@
             android:id="@+id/rate"
             android:hint="Rate/Quintal"
             android:maxLength="10"
+            android:maxLines="1"
+            android:inputType="number"
 
             />
 
 
     </android.support.design.widget.TextInputLayout>
 
-    <Button
-        android:id="@+id/sellbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="15dp"
-        android:text="Submit"
-        android:background="@drawable/buttoncolor1"
-        android:textColor="@drawable/textcolor1"
-        android:textAllCaps="false"
-        />
 
 
-</LinearLayout>
+
+        <Button
+            android:id="@+id/sellbutton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til3"
+            app:layout_constraintRight_toRightOf="parent"
+
+            android:text="Add Product"
+            android:background="@drawable/buttoncolor2"
+            android:textColor="@drawable/textcolor1"
+            android:textAllCaps="false"
+
+            />
+
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
