@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:minHeight="100dp"
+    android:minWidth="400dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Description"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ask_desc"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/update_cost_input"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:inputType="text"
+        android:textSize="14sp"
+        android:hint="Enter Description"
+        android:padding="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:text="Cost"
+        android:textColor="@android:color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/ask_cost"
+        android:inputType="number"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/update_cost_input"
+        android:fontFamily="@font/lato_bold"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:hint="Enter Cost"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="end">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/cancel_other_cost"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_backgr"
+            android:elevation="4dp"
+            android:fontFamily="@font/lato_bold"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="CANCEL"
+            android:textSize="12sp"  />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm_other_cost"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/rounded_backgr"
+            android:elevation="4dp"
+            android:fontFamily="@font/lato_bold"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="OK"
+            android:textSize="12sp"  />
+    </LinearLayout>
+
+</LinearLayout>

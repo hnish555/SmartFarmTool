@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CropListingActivity"
+    android:background="#eeeeee">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/crop_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/no_crop"
+        android:layout_centerInParent="true"
+        android:text="No crop under\nproduction"
+        android:fontFamily="@font/lato_bold"
+        android:textSize="16sp"
+        android:gravity="center"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/add_new_crop"
+        android:src="@drawable/leaf"
+        app:backgroundTint="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="30dp"/>
+
+</RelativeLayout>

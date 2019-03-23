@@ -9,10 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.smartfarmtool.HomeActivity;
 import com.example.smartfarmtool.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,30 +21,33 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
 import static com.example.smartfarmtool.R.id.phone_next_btn_id;
-
 public class PhoneActivity extends AppCompatActivity {
 
     private static final String TAG = "PhoneLogin";
-    private boolean mVerificationInProgress = false;
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthlistner;
-
     FirebaseDatabase database;
     DatabaseReference databaseReference;
-    TextView phn,otp,name;
-    Button phn_btn,otp_btn;
+    TextView phn, otp ;
+    Button phn_btn, otp_btn;
+    ProgressBar progressBar;
+    String phoneNumber;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,24 +56,30 @@ public class PhoneActivity extends AppCompatActivity {
         final RelativeLayout phn_lyt;
         final LinearLayout otp_lyt;
 
-        phn_lyt=findViewById(R.id.phone_layout);
-        otp_lyt=findViewById(R.id.otp_layout);
-
-        phn=findViewById(R.id.enter_phone_id);
-        phn_btn=findViewById(phone_next_btn_id);
-
-        otp=findViewById(R.id.otp_id);
-        name=findViewById(R.id.otp_name_id);
-        otp_btn=findViewById(R.id.otp_continue);
-        database=FirebaseDatabase.getInstance();
-        databaseReference=database.getReference("User:");
+        phn_lyt = findViewById(R.id.phone_layout);
+        otp_lyt = findViewById(R.id.otp_layout);
 
 
+        phn = findViewById(R.id.enter_phone_id);
+        phn_btn = findViewById(phone_next_btn_id);
+        progressBar = findViewById(R.id.progress_id);
+        otp = findViewById(R.id.otp_id);
+        otp_btn = findViewById(R.id.otp_continue);
 
-        phn_btn.setOnClickListener(new View.OnClickListener() {
+         phn_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String code = "+91";
+                String number = phn.getText().toString();
+                phoneNumber = code + number;
+                if (phn.getText().toString().isEmpty()) {
+                    phn.setError("Phone numbe required :");
+                    phn.requestFocus();
+                    return;
+                }
+
                 getOtp(phn.getText().toString());
+
 
             }
         });
@@ -87,13 +96,20 @@ public class PhoneActivity extends AppCompatActivity {
             }
         });
 
+
+
         mAuth = FirebaseAuth.getInstance();
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential credential) {
                 Log.d("", "onVerificationCompleted:" + credential);
+                String code = credential.getSmsCode();
+                if (code != null) {
+                    progressBar.setVisibility(View.VISIBLE);
+                    otp.setText(code);
+                    signInWithPhoneAuthCredential(credential);
 
-                signInWithPhoneAuthCredential(credential);
+                }
             }
 
             @Override
@@ -124,33 +140,54 @@ public class PhoneActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "signInWithCredential:success");
-                            FirebaseUser user = task.getResult().getUser();
-                            String nam=name.getText().toString();
-                            databaseReference.setValue(nam);
-                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class).putExtra("phone", user.getPhoneNumber()));
-                            finish();
-                        } else {
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                otp.setError("Invalid code.");
+                        Log.d(TAG, "signInWithCredential:success");
+                            if (task.isSuccessful()) {
+                                DatabaseReference UserDb = FirebaseDatabase.getInstance().getReference().child("Farmer :");
+                                UserDb.orderByChild("fphone").addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        if (dataSnapshot.getValue() != null) {
+                                            //user  already  log in
+                                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+                                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                            finish();
+                                        } else if (dataSnapshot.getValue()==null){
+                                            //new  user
+                                            startActivity(new Intent(PhoneActivity.this, RegisterAcitivity.class)
+                                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                                                    .putExtra("phoneNumber", phoneNumber));
+                                            finish();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
-                        }
+                            else {
+
+
+                            }
+
+
                     }
                 });
     }
 
     private void getOtp(String phoneNumber) {
+
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
-                60,                 // Timeout duration
-                TimeUnit.SECONDS,   // Unit of timeout
-                this,               // Activity (for callback binding)
-                mCallbacks);        // OnVerificationStateChangedCallbacks
+                "+91" + phoneNumber,
+                60,
+                TimeUnit.SECONDS,
+                this,
+                mCallbacks);
     }
 
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
+
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
         signInWithPhoneAuthCredential(credential);
     }
@@ -158,7 +195,7 @@ public class PhoneActivity extends AppCompatActivity {
     private void resendVerificationCode(String phoneNumber,
                                         PhoneAuthProvider.ForceResendingToken token) {
         PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                phoneNumber,        // Phone number to verify
+                "+91" + phoneNumber,        // Phone number to verify
                 60,                 // Timeout duration
                 TimeUnit.SECONDS,   // Unit of timeout
                 this,               // Activity (for callback binding)
@@ -166,10 +203,13 @@ public class PhoneActivity extends AppCompatActivity {
                 token);             // ForceResendingToken from callbacks
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+        }
 
-
-
-
-
-
+    }
 }

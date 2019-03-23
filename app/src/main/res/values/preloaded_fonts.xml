@@ -3,5 +3,9 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/adamina</item>
         <item>@font/faster_one</item>
+        <item>@font/lato_black</item>
+        <item>@font/lato_bold</item>
+        <item>@font/libre_baskerville</item>
+        <item>@font/poppins_medium</item>
     </array>
 </resources>

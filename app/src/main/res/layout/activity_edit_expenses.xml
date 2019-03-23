@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:context=".AddCropActivity"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:cardBackgroundColor="@color/colorPrimary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TOTAL EXPENSES"
+                    android:fontFamily="@font/lato_bold"
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@android:color/white"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/total_expense"
+                    android:fontFamily="@font/lato_black"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@android:color/white"/>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="10dp">
+
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:text="Irrigation cost"
+                                android:fontFamily="@font/lato_bold"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"/>
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginEnd="5dp"
+                                app:elevation="2dp"
+                                app:fabSize="mini"
+                                app:backgroundTint="@android:color/white"
+                                android:src="@drawable/ic_add_icon"
+                                android:id="@+id/add_irr_cost" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_gravity="center_vertical"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/irr_cost"
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/libre_baskerville"
+                                android:layout_gravity="center_vertical"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"
+                                android:textSize="26sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="0.5"
+                                android:id="@+id/irr_input"
+                                android:padding="5dp"
+                                android:layout_gravity="center_vertical"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                android:background="@drawable/update_cost_input"
+                                android:fontFamily="@font/lato_bold"
+                                android:inputType="number"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:gravity="center_vertical"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:text="Labor cost"
+                                android:fontFamily="@font/lato_bold"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"/>
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginEnd="5dp"
+                                app:elevation="2dp"
+                                app:fabSize="mini"
+                                app:backgroundTint="@android:color/white"
+                                android:src="@drawable/ic_add_icon"
+                                android:id="@+id/add_lab_cost" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/lab_cost"
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/libre_baskerville"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="center_vertical"
+                                android:textColor="@android:color/black"
+                                android:textSize="26sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="0.5"
+                                android:id="@+id/lab_input"
+                                android:padding="5dp"
+                                android:layout_gravity="center_vertical"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                android:background="@drawable/update_cost_input"
+                                android:fontFamily="@font/lato_bold"
+                                android:inputType="number"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:gravity="center_vertical"/>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:text="Chemical Cost"
+                                android:fontFamily="@font/lato_bold"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"/>
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:layout_marginEnd="5dp"
+                                app:elevation="2dp"
+                                app:fabSize="mini"
+                                app:backgroundTint="@android:color/white"
+                                android:src="@drawable/ic_add_icon"
+                                android:id="@+id/add_chem_cost" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_margin="10dp">
+
+                            <TextView
+                                android:id="@+id/chem_cost"
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/libre_baskerville"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"
+                                android:textSize="26sp" />
+
+                            <EditText
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_weight="0.5"
+                                android:id="@+id/chem_input"
+                                android:padding="5dp"
+                                android:layout_gravity="center_vertical"
+                                android:maxLength="5"
+                                android:maxLines="1"
+                                android:background="@drawable/update_cost_input"
+                                android:fontFamily="@font/lato_bold"
+                                android:inputType="number"
+                                android:textStyle="bold"
+                                android:textSize="14sp"
+                                android:gravity="center_vertical"/>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+
+                <android.support.design.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="50dp"
+                                android:layout_weight="1"
+                                android:text="Other Cost"
+                                android:fontFamily="@font/lato_bold"
+                                android:textStyle="bold"
+                                android:textSize="16sp"
+                                android:gravity="center_vertical"
+                                android:textColor="@android:color/black"/>
+
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginBottom="5dp"
+                                app:elevation="2dp"
+                                app:fabSize="mini"
+                                app:backgroundTint="@android:color/white"
+                                android:src="@drawable/ic_add_icon"
+                                android:id="@+id/add_other_cost" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/other_cost_list">
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.design.card.MaterialCardView>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/save_updates"
+        android:background="@color/colorPrimary"
+        android:layout_margin="10dp"
+        android:text="SAVE"
+        android:fontFamily="@font/lato_black"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"/>
+</LinearLayout>

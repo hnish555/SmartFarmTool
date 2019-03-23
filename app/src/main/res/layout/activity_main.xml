@@ -1,72 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    android:background="@color/colorPrimary"
+    android:background="@drawable/crop_image"
     >
 
-    <ImageView
-        android:id="@+id/a_miv1"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="40dp"
-        android:alpha="0.2"
-        android:background="@drawable/ic_local_florist_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.406" />
 
+              <Button
+                  android:id="@+id/farmer_section"
+                  style="?android:attr/buttonBarButtonStyle"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:layout_marginTop="50dp"
+                  android:background="@drawable/buttoncolor"
+                  android:text="@string/farmersection"
+                  android:textAllCaps="false"
+                  android:textColor="@drawable/textcolor"
+                  android:textSize="20sp"
+                  android:fontFamily="serif-monospace"
+                  android:elevation="20dp"
+                  android:layout_centerInParent="true"
+                  />
 
-    <Button
-        android:id="@+id/farmer_section"
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="46dp"
-        android:background="@drawable/buttoncolor"
-        android:text="@string/farmersection"
-        android:textAllCaps="false"
-        android:textColor="@drawable/textcolor"
-        android:textSize="20sp"
-        android:fontFamily="monospace"
-        app:layout_constraintBottom_toTopOf="@+id/sell_buy"
-        app:layout_constraintEnd_toEndOf="@+id/a_miv1"
-        app:layout_constraintHorizontal_bias="0.519"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/a_miv1"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/sell_buy"
-        android:layout_width="wrap_content"
-        android:layout_height="46dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="144dp"
-        android:background="@drawable/buttoncolor"
-        android:text="@string/sell_buy"
-        android:textAllCaps="false"
-        android:textColor="@drawable/textcolor"
-        android:textSize="20sp"
-        android:fontFamily="monospace"
-        app:layout_constraintBottom_toBottomOf="@+id/a_miv1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
-
-
-</android.support.constraint.ConstraintLayout>
+              <Button
+                  android:id="@+id/sell_buy"
+                  android:layout_width="wrap_content"
+                  android:layout_height="46dp"
+                  android:background="@drawable/buttoncolor"
+                  android:text="@string/sell_buy"
+                  android:textAllCaps="false"
+                  android:textColor="@drawable/textcolor"
+                  android:textSize="20sp"
+                  android:layout_below="@+id/farmer_section"
+                  android:layout_marginTop="40dp"
+                  android:layout_marginBottom="50dp"
+                  android:fontFamily="serif-monospace"
+                  android:elevation="20dp"
+                  android:layout_centerInParent="true"
+                  />
+</RelativeLayout>

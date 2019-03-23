@@ -1,16 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
-        <TextView
+    tools:context=".Login.HomeActivity">
+
+
+        <Button
+            android:id="@+id/newsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome  to  HomeAtivity"
+            android:text="Get News"
             android:textSize="20dp"
             android:layout_centerInParent="true"
+            android:background="@drawable/button_new"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="serif-monospace"
+            android:layout_marginBottom="20dp"
+            />
+
+        <Button
+            android:layout_below="@+id/newsButton"
+            android:id="@+id/signout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign Out"
+            android:textSize="20dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/button_new"
+            android:textAllCaps="false"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="serif-monospace"
+            android:layout_marginBottom="10dp"
             />
 </RelativeLayout>

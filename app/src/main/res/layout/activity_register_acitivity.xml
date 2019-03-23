@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login.RegisterAcitivity">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter Your  Details ..."
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:fontFamily="@font/faster_one"
+        android:textSize="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/register_title"
+
+        />
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/inputLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/register_title"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        >
+        <EditText
+            android:id="@+id/fname_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/name"
+            android:backgroundTint="@color/colorPrimary"
+            android:maxLines="1"
+            android:textSize="20dp"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/inputLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_below="@+id/inputLayout1"
+        >
+
+        <EditText
+            android:id="@+id/fphone_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/hintmobno"
+            android:backgroundTint="@color/colorPrimary"
+            android:inputType="phone"
+            android:maxLength="15"
+            android:focusable="false"
+            android:clickable="false"
+            android:longClickable="false"
+            android:maxLines="1"
+            android:textSize="20dp"
+            android:textColorHighlight="@color/colorPrimaryDark"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorPrimaryDark"
+            android:textAlignment="center"
+            />
+
+
+    </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/fenter_id"
+            android:layout_below="@+id/inputLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/button_new"
+            android:text="@string/enter"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="serif-monospace"
+            android:textStyle="bold"
+            android:textSize="20dp"
+            />
+
+
+</RelativeLayout>

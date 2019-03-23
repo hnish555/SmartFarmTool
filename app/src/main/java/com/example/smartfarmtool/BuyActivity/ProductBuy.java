@@ -27,7 +27,15 @@ public class ProductBuy extends AppCompatActivity {
                 public void onNavigationItemReselected(@NonNull MenuItem menuItem) {
                     Fragment seletedFrag=null;
                     switch (menuItem.getItemId()){
-
+                        case R.id.menu1_id:
+                            seletedFrag=new HomeFragment();
+                            break;
+                        case R.id.menu2_id:
+                            seletedFrag=new BuyFragment();
+                            break;
+                        case R.id.menu3_id:
+                            seletedFrag=new SellFragment();
+                            break;
                     }
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,seletedFrag)
                     .commit();

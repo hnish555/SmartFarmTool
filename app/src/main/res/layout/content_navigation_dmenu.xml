@@ -18,6 +18,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:background="?android:attr/windowBackground"
         app:menu="@menu/bottomnavigation"
+
         >
 
     </android.support.design.widget.BottomNavigationView>
