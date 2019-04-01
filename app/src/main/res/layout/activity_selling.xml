@@ -1,33 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SellingActivity">
+  >
 
-    <android.support.design.widget.AppBarLayout
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        android:layout_margin="5dp"
+        app:cardElevation="12dp"
+        >
+        <TextView
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="40dp"
+            android:text="Crop inlisted for sell"
+            android:textSize="20dp"
+            android:fontFamily="@font/lato_bold"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:background="@color/colorPrimaryDark"
 
-    </android.support.design.widget.AppBarLayout>
+            />
 
-    <include layout="@layout/content_selling" />
+    </android.support.v7.widget.CardView>
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/card_view"
+        android:layout_marginTop="15dp"
+        android:id="@+id/sellrecyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="8dp"
+        app:srcCompat="@android:drawable/ic_input_add" />
 
-</android.support.design.widget.CoordinatorLayout>
+</RelativeLayout>

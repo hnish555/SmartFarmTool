@@ -13,9 +13,9 @@
         android:text="Enter Your  Details ..."
         android:layout_centerHorizontal="true"
         android:textStyle="bold"
-        android:fontFamily="@font/faster_one"
+        android:fontFamily="@font/lato_bold"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="20dp"
         android:id="@+id/register_title"
 

@@ -2,12 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.smartfarmtool">
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
 
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--<protected-broadcast android:name="com.motorola.motocare.INTENT_TRIGGER" />-->
 
-    </uses-permission>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,21 +17,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EditExpensesActivity"></activity>
-        <activity android:name=".CropListingActivity" />
-        <activity android:name=".AddCropActivity" />
-        <activity android:name=".Main.NewsMainActivity" />
+        <activity
+            android:name=".Main.NewsDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".EditExpensesActivity"/>
+        <activity android:name=".CropListingActivity"/>
+        <activity android:name=".AddCropActivity"/>
+        <activity
+            android:name=".Main.NewsMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".Login.RegisterAcitivity" />
         <activity
             android:name=".Login.HomeActivity"
-            android:windowSoftInputMode="stateHidden" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".Login.PhoneActivity"
+            android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".NavigationDMenu" />
-        <activity android:name=".SellingActivity" />
+        <activity
+            android:name=".NavigationDMenu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SellingActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AddProduct" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

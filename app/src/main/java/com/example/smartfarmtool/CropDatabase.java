@@ -6,10 +6,11 @@ import android.arch.persistence.room.Room;
 import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 
-@Database(entities = {CropDetail.class,OtherCropCost.class}, version = 1, exportSchema = false)
+@Database(entities = {CropDetail.class,OtherCropCost.class,User.class}, version = 1, exportSchema = false)
 public abstract class CropDatabase extends RoomDatabase {
 
     public abstract DataObject dataObject();
+    public abstract UserDao userDao();
     public abstract DataObjectOtherCosts otherCosts();
     private static volatile CropDatabase INSTANCE;
 

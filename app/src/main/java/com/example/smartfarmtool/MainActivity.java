@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.smartfarmtool.Login.HomeActivity;
 import com.example.smartfarmtool.Login.PhoneActivity;
 import com.google.firebase.FirebaseApp;
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(MainActivity.this, NavigationDMenu.class));
+                startActivity(new Intent(MainActivity.this, HomeActivity.class));
             }
         });
 

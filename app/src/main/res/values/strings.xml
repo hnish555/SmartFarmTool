@@ -18,7 +18,7 @@
     <string name="village">Village</string>
     <string name="Dist">District</string>
     <string name="state">State</string>
-    <string name="registration">Otp varification...</string>
+    <string name="registration">otp varification...</string>
     <string name="smart_farm_tool">Smart Farm Tool</string>
     <string name="skip">Skip</string>
     <string name="login_or_ragister">Login or Register</string>
@@ -33,4 +33,57 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="_5_days_weather_forcast">5 DAYS WEATHER FORCAST</string>
     <string name="todayweatherfragment">TodayWeatherFragment</string>
+
+    <string-array name="crops_name">
+        <item>Wheat</item>
+        <item>Rice</item>
+        <item>Jowar</item>
+        <item>Maize</item>
+        <item>Sorghum</item>
+        <item>Peas</item>
+        <item>Lentil</item>
+        <item>Rye</item>
+        <item>Mustard</item>
+        <item>Turmeric</item>
+        <item>Soyabeans</item>
+        <item>Garlic</item>
+        <item>Sunflower Seed</item>
+        <item>Ginger</item>
+
+    </string-array>
+
+    <string-array name="city_name">
+
+        <item>Kochi,IN</item>
+        <item>Thiruvananthapuram,IN</item>
+        <item>Kasaragod,IN</item>
+        <item>Pathanamthitta,IN</item>
+        <item>Idukki,IN</item>
+        <item>Malappuram,IN</item>
+        <item>Kozhikode,IN</item>
+        <item>Ernakulam,IN</item>
+        <item>Aluva,IN</item>
+        <item>Kollam,IN</item>
+        <item>Kannur,IN</item>
+        <item>Thrissur,IN</item>
+        <item>Kottayam,IN</item>
+        <item>Munnar,IN</item>
+        <item>ooty,IN</item>
+        <item>Patna,IN</item>
+        <item>Gopalganj,IN</item>
+        <item>Katihar,IN</item>
+        <item>Purnia,IN</item>
+        <item>Noida,IN</item>
+        <item>Bhagalpur,IN</item>
+        <item>Delhi,IN</item>
+        <item>Mumbai,IN</item>
+        <item>Chennai,IN</item>
+        <item>Kolkata,IN</item>
+        <item>Bengaluru,IN</item>
+        <item>Bihpur,IN</item>
+        <item>Dhamdaha,IN</item>
+        <item>Naugachia,IN</item>
+
+
+    </string-array>
 </resources>

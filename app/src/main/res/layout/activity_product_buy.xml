@@ -6,24 +6,6 @@
     android:layout_height="match_parent"
     >
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_navigation"
-        />
 
-    <android.support.design.widget.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:menu="@menu/navigation_menu"
-        android:background="#323232"
-        android:layout_margin="5dp"
-        app:itemTextColor="#ffffff"
-        app:itemIconTint="#ffffff"
-        >
 
-    </android.support.design.widget.BottomNavigationView>
 </RelativeLayout>

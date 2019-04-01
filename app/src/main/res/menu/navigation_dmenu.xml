@@ -2,10 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-
-        android:id="@+id/settings"
-        android:title="Settings"/>
-
+        android:id="@+id/news_menu_id"
+        android:title="GetNews"
+        app:showAsAction="always"
+        />
+    <item
+        android:title=""
+        android:icon="@drawable/ic_location_searching_black_24dp"
+        android:id="@+id/change_cityId"
+        android:orderInCategory="100"
+        app:showAsAction="always" />
     <item
 
         android:id="@+id/contactus"

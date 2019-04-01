@@ -1,4 +1,4 @@
-package com.example.smartfarmtool;
+package com.example.smartfarmtool.Util;
 
 
 import android.graphics.Color;
@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
 
-public class Utils {
+public class Utils{
 
     public static ColorDrawable[] vibrantLightColorList =
             {
@@ -26,7 +26,7 @@ public class Utils {
                     new ColorDrawable(Color.parseColor("#d93947"))
             };
 
-    public static ColorDrawable getRandomDrawbleColor() {
+    public static ColorDrawable getRandomDrawbleColor(){
         int idx = new Random().nextInt(vibrantLightColorList.length);
         return vibrantLightColorList[idx];
     }

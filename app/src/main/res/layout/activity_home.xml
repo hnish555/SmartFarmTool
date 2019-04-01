@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".Login.HomeActivity">
 
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardElevation="12dp"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="All Products for Buying"
+        android:textSize="20dp"
+        android:fontFamily="@font/lato_bold"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"
 
-        <Button
-            android:id="@+id/newsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Get News"
-            android:textSize="20dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/button_new"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="serif-monospace"
-            android:layout_marginBottom="20dp"
-            />
+        />
 
-        <Button
-            android:layout_below="@+id/newsButton"
-            android:id="@+id/signout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sign Out"
-            android:textSize="20dp"
-            android:layout_centerInParent="true"
-            android:background="@drawable/button_new"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            android:textColor="@color/colorAccent"
-            android:fontFamily="serif-monospace"
-            android:layout_marginBottom="10dp"
-            />
+</android.support.v7.widget.CardView>
+<android.support.v7.widget.RecyclerView
+    android:layout_marginTop="5dp"
+    android:layout_below="@+id/card_view"
+    android:id="@+id/home_recyclerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+</android.support.v7.widget.RecyclerView>
+
+
+
 </RelativeLayout>

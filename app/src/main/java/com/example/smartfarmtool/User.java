@@ -7,10 +7,15 @@ import android.arch.persistence.room.PrimaryKey;
 @Entity
 public class User {
 
-    public User(String cropname, String quantity, String rate) {
+    public User(String cropname, String quantity, String rate,String date) {
         this.cropname = cropname;
         this.quantity = quantity;
         this.rate = rate;
+        this.date = date;
+
+    }
+
+    public User() {
     }
 
     @PrimaryKey(autoGenerate = true)
@@ -22,6 +27,9 @@ public class User {
     private String quantity;
     @ColumnInfo(name = "rate")
     private String rate;
+    @ColumnInfo(name = "date")
+    private String date;
+
 
     public int getId() {
         return id;
@@ -54,4 +62,17 @@ public class User {
     public void setRate(String rate) {
         this.rate = rate;
     }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
+
+
+
 }

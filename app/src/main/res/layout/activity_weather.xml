@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    >
+
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardElevation="20dp"
+        >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ff1ba1ee"
+            android:layout_margin="8dp"
+            tools:context=".WeatherActivity">
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/thumbnailIcon"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/weatherimgaeforcast"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        />
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/tempText"
+                        android:text="12.5"
+                        android:textStyle="normal"
+                        android:textSize="40sp"
+                        android:maxLines="1"
+                        android:maxLength="4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="°C"
+                        android:textSize="40sp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_toRightOf="@+id/tempText"
+                        />
+                    <TextView
+                        android:id="@+id/cloudText"
+                        android:layout_centerHorizontal="true"
+                        android:textSize="25sp"
+                        android:layout_marginTop="5dp"
+                        android:layout_below="@+id/tempText"
+                        android:text="Cloudness"
+                        android:fontFamily="@font/lato_bold"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        />
+
+                    <LinearLayout
+                        android:id="@+id/weatherDateLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@+id/cloudText"
+                        android:layout_centerHorizontal="true"
+                        >
+
+                        <TextView
+                            android:id="@+id/cityText"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:fontFamily="@font/lato_bold"
+                            android:layout_centerHorizontal="true"
+                            android:text="City of Spokane, US"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/layout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_below="@+id/weatherDateLayout"
+                        android:layout_centerHorizontal="true"
+                        >
+                        <TextView
+                            android:id="@+id/windText"
+                            android:text="Wind"
+                            android:textSize="16sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                        <TextView
+                            android:layout_marginLeft="10dp"
+                            android:id="@+id/pressureText"
+                            android:textSize="16sp"
+                            android:text="Pressure"
+                            android:layout_below="@+id/thumbnailIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+                    <TextView
+                        android:layout_centerHorizontal="true"
+                        android:id="@+id/humidText"
+                        android:textSize="16sp"
+                        android:text="Humidity"
+                        android:layout_below="@+id/layout2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+
+
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>

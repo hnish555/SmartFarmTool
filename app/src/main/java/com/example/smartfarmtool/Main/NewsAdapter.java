@@ -22,7 +22,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.example.smartfarmtool.Model.Articles;
 import com.example.smartfarmtool.R;
-import com.example.smartfarmtool.Utils;
+import com.example.smartfarmtool.Util.Utils;
 
 import java.util.List;
 
@@ -125,7 +125,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.MyViewHolder> 
 
         @Override
         public void onClick(View view) {
-//                onItemClickListener.onItemClick(view,getAdapterPosition());
+          onItemClickListener.onItemClick(view,getAdapterPosition());
         }
 
     }

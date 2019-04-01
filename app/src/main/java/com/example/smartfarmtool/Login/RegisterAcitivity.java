@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.smartfarmtool.NavigationDMenu;
 import com.example.smartfarmtool.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
@@ -30,7 +31,7 @@ public class RegisterAcitivity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference().child("Farmer :");
+        databaseReference = database.getReference().child("Farmer");
 
         fname=findViewById(R.id.fname_id);
         fphone=findViewById(R.id.fphone_id);
@@ -42,7 +43,6 @@ public class RegisterAcitivity extends AppCompatActivity {
         fphone.setText(phoneNumber);
         fphone.setKeyListener(null);
 
-
         fButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,12 +50,13 @@ public class RegisterAcitivity extends AppCompatActivity {
                 String userid=mAuth.getCurrentUser().getUid();
 
                 DatabaseReference currentUserDb=databaseReference.child(userid);
-                currentUserDb.child("Fphone:").setValue(phoneNumber);
+                currentUserDb.child("Fphone").setValue(phoneNumber);
                 currentUserDb.child("Fname").setValue(name);
-                startActivity(new Intent(RegisterAcitivity.this, HomeActivity.class)
+                startActivity(new Intent(RegisterAcitivity.this, NavigationDMenu.class)
                         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
                 finish();
             }
         });
+
     }
 }

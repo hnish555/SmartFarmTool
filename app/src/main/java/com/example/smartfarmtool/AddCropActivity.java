@@ -124,8 +124,10 @@ public class AddCropActivity extends AppCompatActivity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                lat = lastLocation.getLatitude();
-                lng = lastLocation.getLongitude();
+                if(lastLocation!=null) {
+                    lat = lastLocation.getLatitude();
+                    lng = lastLocation.getLongitude();
+                }
             }
         }
     }

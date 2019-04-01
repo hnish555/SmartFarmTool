@@ -12,7 +12,9 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.smartfarmtool.NavigationDMenu;
 import com.example.smartfarmtool.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,6 +23,7 @@ import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
@@ -31,6 +34,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.concurrent.TimeUnit;
 
+import static com.example.smartfarmtool.R.id.logout;
 import static com.example.smartfarmtool.R.id.phone_next_btn_id;
 public class PhoneActivity extends AppCompatActivity {
 
@@ -44,7 +48,7 @@ public class PhoneActivity extends AppCompatActivity {
     DatabaseReference databaseReference;
     TextView phn, otp ;
     Button phn_btn, otp_btn;
-    ProgressBar progressBar;
+    ProgressBar progressBar,progressBar2;
     String phoneNumber;
 
 
@@ -53,16 +57,15 @@ public class PhoneActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phone);
 
-        final RelativeLayout phn_lyt;
+        final LinearLayout phn_lyt;
         final LinearLayout otp_lyt;
 
         phn_lyt = findViewById(R.id.phone_layout);
         otp_lyt = findViewById(R.id.otp_layout);
-
-
         phn = findViewById(R.id.enter_phone_id);
         phn_btn = findViewById(phone_next_btn_id);
         progressBar = findViewById(R.id.progress_id);
+        progressBar2=findViewById(R.id.progress_id2);
         otp = findViewById(R.id.otp_id);
         otp_btn = findViewById(R.id.otp_continue);
 
@@ -77,7 +80,7 @@ public class PhoneActivity extends AppCompatActivity {
                     phn.requestFocus();
                     return;
                 }
-
+                progressBar2.setVisibility(View.VISIBLE);
                 getOtp(phn.getText().toString());
 
 
@@ -93,6 +96,8 @@ public class PhoneActivity extends AppCompatActivity {
                     return;
                 }
                 verifyPhoneNumberWithCode(mVerificationId, code);
+                progressBar.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -117,6 +122,7 @@ public class PhoneActivity extends AppCompatActivity {
                 Log.w("", "onVerificationFailed", e);
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     phn.setError("Invalid phone number.");
+                    progressBar2.setVisibility(View.GONE);
                 } else if (e instanceof FirebaseTooManyRequestsException) {
 
                 }
@@ -128,6 +134,7 @@ public class PhoneActivity extends AppCompatActivity {
                 mVerificationId = verificationId;
                 mResendToken = token;
                 phn_lyt.setVisibility(View.GONE);
+                progressBar2.setVisibility(View.GONE);
                 otp_lyt.setVisibility(View.VISIBLE);
             }
         };
@@ -142,21 +149,30 @@ public class PhoneActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithCredential:success");
                             if (task.isSuccessful()) {
-                                DatabaseReference UserDb = FirebaseDatabase.getInstance().getReference().child("Farmer :");
-                                UserDb.orderByChild("fphone").addListenerForSingleValueEvent(new ValueEventListener() {
+
+                                DatabaseReference UserDb = FirebaseDatabase.getInstance().getReference().child("Farmer");
+                               // Toast.makeText(PhoneActivity.this,UserDb.orderByChild("Fphone").toString(),Toast.LENGTH_SHORT).show();
+                                UserDb.addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                        if (dataSnapshot.getValue() != null) {
-                                            //user  already  log in
-                                            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
-                                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-                                            finish();
-                                        } else if (dataSnapshot.getValue()==null){
-                                            //new  user
+                                        int  flag=0;
+                                      // Log.d("Datasnapshot", dataSnapshot.getValue().toString());
+                                        for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                                            Log.d("Datasnapshot", snapshot.child("Fphone").getValue().toString());
+
+                                            if (snapshot.child("Fphone").getValue().toString().equals(phoneNumber)){
+//                                              Toast.makeText(PhoneActivity.this,snapshot.child("Fphone").getValue().toString(),Toast.LENGTH_SHORT).show();
+                                                startActivity(new Intent(PhoneActivity.this, NavigationDMenu.class)
+                                                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+                                                flag=1;
+                                                finish();
+                                            }
+                                        }
+
+                                        if (flag==0){
                                             startActivity(new Intent(PhoneActivity.this, RegisterAcitivity.class)
                                                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK)
                                                     .putExtra("phoneNumber", phoneNumber));
-                                            finish();
                                         }
                                     }
 
@@ -207,7 +223,7 @@ public class PhoneActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         if (FirebaseAuth.getInstance().getCurrentUser() != null) {
-            startActivity(new Intent(PhoneActivity.this, HomeActivity.class)
+            startActivity(new Intent(PhoneActivity.this, NavigationDMenu.class)
                     .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
         }
 

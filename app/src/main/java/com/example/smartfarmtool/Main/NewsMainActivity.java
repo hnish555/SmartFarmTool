@@ -1,6 +1,7 @@
 package com.example.smartfarmtool.Main;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,10 +18,12 @@ import android.widget.Toast;
 
 import com.example.smartfarmtool.ApiClient.ApiClient;
 import com.example.smartfarmtool.ApiClient.ApiInterface;
+import com.example.smartfarmtool.Login.HomeActivity;
 import com.example.smartfarmtool.Model.Articles;
 import com.example.smartfarmtool.Model.News;
+import com.example.smartfarmtool.NavigationDMenu;
 import com.example.smartfarmtool.R;
-import com.example.smartfarmtool.Utils;
+import com.example.smartfarmtool.Util.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,6 +90,8 @@ public class NewsMainActivity extends AppCompatActivity implements SwipeRefreshL
                     adapter=new NewsAdapter(articles,NewsMainActivity.this);
                     recyclerView.setAdapter(adapter);
                     adapter.notifyDataSetChanged();
+
+                    initListener();
                     topheadlines.setVisibility(View.VISIBLE);
                     swipeRefreshLayout.setRefreshing(false);
                 }
@@ -105,7 +110,23 @@ public class NewsMainActivity extends AppCompatActivity implements SwipeRefreshL
         });
 
     }
+    private void initListener(){
+        adapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener(){
+            @Override
+            public void onItemClick(View view, int position) {
+                Intent intent=new Intent(NewsMainActivity.this,NewsDetailActivity.class);
+                Articles article=articles.get(position);
+                intent.putExtra("url",article.getUrl());
+                intent.putExtra("title",article.getTitle());
+                intent.putExtra("img",article.getUrlToImage());
+                intent.putExtra("date",article.getPublishedAt());
+//                intent.putExtra("source",article.getSource().getName());
+                intent.putExtra("author",article.getAuthor());
 
+                startActivity(intent);
+            }
+        });
+    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -148,5 +169,11 @@ public class NewsMainActivity extends AppCompatActivity implements SwipeRefreshL
                 LoadJson(keyword);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        startActivity(new Intent(NewsMainActivity.this, NavigationDMenu.class));
     }
 }

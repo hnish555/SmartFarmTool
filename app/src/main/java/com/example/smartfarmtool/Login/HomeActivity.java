@@ -1,45 +1,56 @@
 package com.example.smartfarmtool.Login;
 
-import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
-import com.example.smartfarmtool.Main.NewsMainActivity;
-import com.example.smartfarmtool.MainActivity;
+
+import com.example.smartfarmtool.Buy;
+import com.example.smartfarmtool.HomeAdapter;
 import com.example.smartfarmtool.R;
-import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+
 
 public class HomeActivity extends AppCompatActivity {
-    private TextView temp,city,decrip,date;
+    private RecyclerView recyclerView;
+    private DatabaseReference databaseReference;
+    private ArrayList<Buy> list;
+    private HomeAdapter homeAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        recyclerView=findViewById(R.id.home_recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        list=new ArrayList<Buy>();
 
-
-        Button btn=findViewById(R.id.signout);
-        btn.setOnClickListener(new View.OnClickListener() {
+        databaseReference= FirebaseDatabase.getInstance().getReference().child("AllCrops");
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(HomeActivity.this, MainActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1:dataSnapshot.getChildren()){
+                    Buy buy=dataSnapshot1.getValue(Buy.class);
+                    list.add(buy);
+                }
+                homeAdapter=new HomeAdapter(HomeActivity.this,list);
+                recyclerView.setAdapter(homeAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
             }
         });
-        Button news=findViewById(R.id.newsButton);
-        news.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(HomeActivity.this, NewsMainActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK));
-            }
-        });
-
     }
 
 

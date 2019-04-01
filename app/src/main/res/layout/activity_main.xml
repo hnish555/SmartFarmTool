@@ -5,40 +5,51 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity"
-    android:background="@drawable/crop_image"
     >
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/crop_image"
+        android:scaleType="center"
+        android:alpha="0.5"
+        />
+    <Button
+        android:id="@+id/farmer_section"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/buttoncolor"
+        android:text="@string/farmersection"
+        android:textAllCaps="false"
+        android:textColor="@drawable/textcolor"
+        android:textSize="20sp"
+        android:fontFamily="serif-monospace"
+        android:elevation="20dp"
+        android:layout_gravity="center"
+        android:alpha="0.7"
+        />
+
+    <Button
+        android:id="@+id/sell_buy"
+        android:layout_width="wrap_content"
+        android:layout_height="46dp"
+        android:layout_gravity="center"
+        android:alpha="0.7"
+        android:background="@drawable/buttoncolor"
+        android:elevation="20dp"
+        android:fontFamily="serif-monospace"
+        android:text="@string/sell_buy"
+        android:textAllCaps="false"
+        android:textColor="@drawable/textcolor"
+        android:textSize="20sp"
+        android:layout_marginTop="80dp"
+
+        />
+
+</FrameLayout>
 
 
-              <Button
-                  android:id="@+id/farmer_section"
-                  style="?android:attr/buttonBarButtonStyle"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"
-                  android:layout_marginTop="50dp"
-                  android:background="@drawable/buttoncolor"
-                  android:text="@string/farmersection"
-                  android:textAllCaps="false"
-                  android:textColor="@drawable/textcolor"
-                  android:textSize="20sp"
-                  android:fontFamily="serif-monospace"
-                  android:elevation="20dp"
-                  android:layout_centerInParent="true"
-                  />
-
-              <Button
-                  android:id="@+id/sell_buy"
-                  android:layout_width="wrap_content"
-                  android:layout_height="46dp"
-                  android:background="@drawable/buttoncolor"
-                  android:text="@string/sell_buy"
-                  android:textAllCaps="false"
-                  android:textColor="@drawable/textcolor"
-                  android:textSize="20sp"
-                  android:layout_below="@+id/farmer_section"
-                  android:layout_marginTop="40dp"
-                  android:layout_marginBottom="50dp"
-                  android:fontFamily="serif-monospace"
-                  android:elevation="20dp"
-                  android:layout_centerInParent="true"
-                  />
 </RelativeLayout>
