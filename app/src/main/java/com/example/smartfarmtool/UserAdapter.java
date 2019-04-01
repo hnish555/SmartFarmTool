@@ -31,6 +31,9 @@ class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
 
 
 
+
+
+
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.user_row, viewGroup,false);
         return new ViewHolder(view);
     }
